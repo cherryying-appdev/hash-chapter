@@ -8,4 +8,9 @@ sample_hash = {:a => 100, :b => 200, :c => 300, :d => 400, :e => rand(200), :f =
 
 p "Enter an integer to find:"
 integer = gets.chomp.to_i
-p sample_hash.values
+if sample_hash.has_value?(integer)
+  key = sample_hash.select{|key,value| value == integer}.keys
+  p integer.to_s + " is under the key: " + key.to_s[2] + "."
+else 
+  p "Could not find the integer " + integer.to_s
+end
